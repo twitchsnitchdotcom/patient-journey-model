@@ -1,10 +1,10 @@
 server_uri: bolt://localhost:7687/
 admin_user: neo4j
-admin_pass: test
+admin_pass: traidable
 
 files:
   # payers
-  - url: file:///data/projects/synthea/output/csv/payers.csv
+  - url: file:///root/synthea/output/csv/payers.csv
     compression: none
     skip_file: false
     cql: |
@@ -17,7 +17,7 @@ files:
             p.state=row.STATE_HEADQUARTERED
 
   # encounters
-  - url: file:///data/projects/synthea/output/csv/encounters.csv
+  - url: file:///root/synthea/output/csv/encounters.csv
     compression: none
     skip_file: false
     cql: |
@@ -44,7 +44,7 @@ files:
         MERGE (e)-[:HAS_PAYER]->(pa)
 
   # providers
-  - url: file:///data/projects/synthea/output/csv/providers.csv
+  - url: file:///root/synthea/output/csv/providers.csv
     compression: none
     skip_file: false
     cql: |
@@ -59,7 +59,7 @@ files:
       MERGE (p)-[:HAS_ADDRESS]->(a)
 
   # patients
-  - url: file:///data/projects/synthea/output/csv/patients.csv
+  - url: file:///root/synthea/output/csv/patients.csv
     compression: none
     skip_file: false
     cql: |
@@ -81,7 +81,7 @@ files:
         MERGE (p)-[:HAS_ADDRESS]->(a)
 
   # payer transitions
-  - url: file:///data/projects/synthea/output/csv/payer_transitions.csv
+  - url: file:///root/synthea/output/csv/payer_transitions.csv
     compression: none
     skip_file: false:
     cql: |
@@ -94,7 +94,7 @@ files:
       SET e.year=toInteger(row.END_YEAR)
 
   # allergies
-  - url: file:///data/projects/synthea/output/csv/allergies.csv
+  - url: file:///root/synthea/output/csv/allergies.csv
     compression: none
     skip_file: false
     cql: |
@@ -118,7 +118,7 @@ files:
           MERGE (as)-[:HAS_END]->(ae)
 
   # conditions
-  - url: file:///data/projects/synthea/output/csv/conditions.csv
+  - url: file:///root/synthea/output/csv/conditions.csv
     compression: none
     skip_file: false
     cql: |
@@ -142,7 +142,7 @@ files:
         MERGE (cs)-[:HAS_END]->(ce)
 
   # medications
-  - url: file:///data/projects/synthea/output/csv/medications.csv
+  - url: file:///root/synthea/output/csv/medications.csv
     compression: none
     skip_file: false
     cql: |
@@ -166,7 +166,7 @@ files:
           MERGE (ps)-[:HAS_END]->(pe)
 
   # procedures
-  - url: file:///data/projects/synthea/output/csv/procedures.csv
+  - url: file:///root/synthea/output/csv/procedures.csv
     compression: none
     skip_file: false
     cql: |
@@ -183,7 +183,7 @@ files:
           MERGE (pe)-[:HAS_PROCEDURE]->(r)
 
   # observations
-  - url: file:///data/projects/synthea/output/csv/observations.csv
+  - url: file:///root/synthea/output/csv/observations.csv
     compression: none
     skip_file: false
     cql: |
@@ -198,7 +198,7 @@ files:
       SET o += attr
 
   # care plans
-  - url: file:///data/projects/synthea/output/csv/careplans.csv
+  - url: file:///root/synthea/output/csv/careplans.csv
     compression: none
     skip_file: false
     cql: |
@@ -222,7 +222,7 @@ files:
           MERGE (cs)-[:HAS_END]->(ce)
 
   # organizations
-  - url: file:///data/projects/synthea/output/csv/organizations.csv
+  - url: file:///root/synthea/output/csv/organizations.csv
     compression: none
     skip_file: false
     cql: |
